@@ -49,11 +49,11 @@ namespace IronPDFDemo.Controllers
             Random rnd = new Random();
             HtmlToPdf renderer = null;
             PdfDocument pdf = null;
-            int rand = rnd.Next(0, 10000);
             string pdfUrl = String.Empty;
             string basePath = String.Empty;
             string outputPath = String.Empty;
             string outputName = String.Empty;
+            int rand = rnd.Next(0, 10000);
 
             for (int i = 0; i< 1; i++)
             {
