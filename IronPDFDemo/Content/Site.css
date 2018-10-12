@@ -1,24 +1,681 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿@font-face
+{
+    font-family: 'SchucoCondensedLight';
+    src: url('../Fonts/UniversForSchueco-320CdLt.otf');
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
+@font-face
+{
+    font-family: 'SchucoRegularLight';
+    src: url('../Fonts/UniversForSchueco-330Light.otf');
+}
+
+@font-face
+{
+    font-family: 'SchucoCondensedRegular';
+    src: url('../Fonts/UniversForSchueco-420CdRg.otf');
+}
+
+@font-face
+{
+    font-family: 'SchucoRegular';
+    src: url('../Fonts/UniversForSchueco-430Reg.otf');
+}
+
+@font-face
+{
+    font-family: 'SchucoRegularItalic';
+    src: url('../Fonts/UniversForSchueco-431RgIt.otf');
+}
+
+@font-face
+{
+    font-family: 'SchucoCondensedMedium';
+    src: url('../Fonts/UniversForSchueco-520CdMd.otf');
+}
+
+@font-face
+{
+    font-family: 'SchucoRegularMedium';
+    src: url('../Fonts/UniversForSchueco-530Med.otf');
+}
+
+@font-face
+{
+    font-family: 'SchucoCondensedBold';
+    src: url('../Fonts/UniversForSchueco-620CdBd.otf');
+}
+
+@font-face
+{
+    font-family: 'SchucoRegularBold';
+    src: url('../Fonts/UniversForSchueco-630Bold.otf');
+}
+
+p
+{
+    font-family: 'SchucoRegular';
+    font-size: 15px;
+    letter-spacing: 0px;
+    line-height: 20px;
+}
+
+label
+{
+    font-size: 21px;
+    font-family: SchucoRegularLight;
+}
+
+.inlineBlock
+{
+    display: inline-block;
+}
+
+#poweredByVCL
+{
+    /*background-color: #262626;*/
+    color: #ffffff;
+    text-align: center;
+    position: fixed;
+    margin: 0px auto;
+    left: 0;
+    right: 0;
+    bottom: 5px;
+    width: 100%;
+    font-size: 15px;
+}
+
+#poweredByVCL p
+{
+    font-family: 'SchucoCondensedLight';
+}
+
+#poweredByVCL p span
+{
+    font-family: 'SchucoCondensedBold';
+}
+
+.selectedHighlightFontColor
+{
+    color: #78b928;
+}
+
+.unselectable
+{
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.cursorPointer:hover
+{
+    cursor: pointer;
+}
+
+#drawerContainerBorder
+{
+    width: 100%;
+    height: 115px;
+    background: url('/Content/Images/header.png');
+    height: 155px;
+    background-size: cover
+}
+
+#drawerContainerBorder .container
+{
+    margin-right: initial;
+    margin-left: initial;
+    padding-left: 75px;
+}
+
+#homePageTitle
+{
+    font-family: 'SchucoRegularLight';
+    color: #ffffff;
+    padding-top: 70px;
+    font-size: 48px;
+}
+
+body
+{
+    color: #ffffff;
+}
+
+h4
+{
+    font-family: 'SchucoRegularBold';
+    font-size: 15px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+h4 span
+{
+    text-transform: initial;
+}
+
+/* width */
+::-webkit-scrollbar
+{
+    width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track
+{
+    /*box-shadow: inset 0 0 5px grey;*/
+    /*border-radius: 10px;*/
+    margin-right: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb
+{
+    background: #474747;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover
+{
+    /*background: #b30000;*/
+}
+
+button
+{
+    width: 175px;
+    height: 45px;
+    font-size: 12px;
+    background-color: #474747;
+    border: 1px solid white;
+    font-family: 'SchucoRegularBold';
+    color: white;
+    outline: none;
+    text-transform: uppercase;
+}
+
+button:hover
+{
+    border: 1px solid #00a2d1;
+}
+
+button:active
+{
+    border: 1px solid #78b928;
+}
+
+button.active
+{
+    background-color: #272727;
+    border: 1px solid #78b928;
+}
+
+button.disabled
+{
+    background-color: #474747;
+    border: 1px solid #474747;
+    color: #272727;
+    cursor: initial;
+}
+
+th
+{
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+td, th
+{
+    padding: 0 10px 10px 0;
+}
+
+tr th
+{
+    background: #262626;
+}
+
+tr:nth-child(odd)
+{
+    background: #262626;
+}
+
+tr:nth-child(even)
+{
+    background: #262626;
+}
+
+select
+{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    width: 300px;
+    height: 45px;
+    border-color: white;
+    background: url("/Content/Images/dropdownArrowWhite.png");
+    background-repeat: no-repeat;
+    background-position: 265px 15px;
+    color: white;
+    font-size: 18px;
     padding-left: 15px;
-    padding-right: 15px;
+    font-family: 'SchucoRegularLight';
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+select.success
+{
+    border-color: #78B928;
+    background: url("/Content/Images/green-check.png");
+    background-repeat: no-repeat;
+    background-position: 270px 15px;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+select:focus, select:hover
+{
+    outline: none;
+    background: none;
+    border: 1px solid #00a2d1;
+    background: url("/Content/Images/dropdownArrowWhite.png");
+    background-repeat: no-repeat;
+    background-position: 265px 15px;
+}
+
+option
+{
+    font-family: 'SchucoRegularLight';
+    font-size: 18px;
+    padding: 15px;
+    background-color: #474747;
+    color: white;
+}
+
+input[type=range]
+{
+    -webkit-appearance: none;
+    border-radius: 5px;
+    width: 100%;
+    height: 1px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .1s;
+    transition: opacity .1s;
+    margin-bottom: 20px;
+}
+
+@supports (-ms-ime-align: auto)
+{
+    input[type=range]
+    {
+        -webkit-appearance: initial;
+        border-radius: initial;
+        width: 100%;
+        height: 55px;
+        background: initial;
+        outline: initial;
+        opacity: initial;
+        -webkit-transition: initial;
+        transition: initial;
+        margin-bottom: initial;
+        margin-top: -25px;
+    }
+}
+
+
+input[type=range]:hover
+{
+    opacity: 1;
+}
+
+/* Webkit Slider Thumb */
+
+input[type=range]::-webkit-slider-thumb
+{
+    -webkit-appearance: none;
+    border-radius: 25px;
+    border: 1px solid #6eb743;
+    width: 50px;
+    height: 50px;
+    background: #272727;
+    cursor: pointer;
+}
+
+input[type=range].small::-webkit-slider-thumb
+{
+    -webkit-appearance: none;
+    border-radius: 25px;
+    border: 1px solid #6eb743;
+    width: 25px;
+    height: 25px;
+    background: #272727;
+    cursor: pointer;
+}
+
+/* Mozilla Slider Thumb */
+
+input[type=range]::-moz-range-thumb
+{
+    border-radius: 25px;
+    border: 1px solid #6eb743;
+    width: 50px;
+    height: 50px;
+    background: #272727;
+    cursor: pointer;
+}
+
+input[type=range].small::-moz-range-thumb
+{
+    -webkit-appearance: none;
+    border-radius: 25px;
+    border: 1px solid #6eb743;
+    width: 25px;
+    height: 25px;
+    background: #272727;
+    cursor: pointer;
+}
+
+/* Edge Slider Thumb */
+
+input[type=range]::-ms-range
+{
+    border-radius: 25px;
+    border: 1px solid #6eb743;
+    width: 50px;
+    height: 50px;
+    background: #272727;
+    cursor: pointer;
+}
+
+input[type=range].small::-ms-range
+{
+    border-radius: 25px;
+    border: 1px solid #6eb743;
+    width: 25px;
+    height: 25px;
+    background: #272727;
+    cursor: pointer;
+}
+
+input[type=range]::-ms-track
+{
+    width: 300px;
+    height: 5px;
+    /* remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+    background: transparent;
+    /* leave room for the larger thumb to overflow with a transparent border */
+    border-color: transparent;
+    border-width: 6px 0;
+    /* remove default tick marks */
+    color: transparent;
+}
+
+input[type=range]::-ms-fill-lower
+{
+    background: #78B928;
+    border-radius: 10px;
+}
+
+input[type=range]::-ms-fill-upper
+{
+    background: #262626;
+    border-radius: 10px;
+}
+
+input[type=range]::-ms-thumb
+{
+    border: 1px solid green;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: grey;
+}
+
+/* Audio Webkit */
+
+/*#audio-slider::-webkit-slider-thumb
+{
+    background-image: url("/Content/Images/percentZero.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#audio-slider.percentHalf::-webkit-slider-thumb
+{
+    background-image: url("/Content/Images/percentHalf.png");
+}
+
+#audio-slider.percentOne::-webkit-slider-thumb
+{
+    background-image: url("/Content/Images/percentOne.png");
+}
+
+#audio-slider.percentTwo::-webkit-slider-thumb
+{
+    background-image: url("/Content/Images/percentTwo.png");
+}
+
+#audio-slider.percentFive::-webkit-slider-thumb
+{
+    background-image: url("/Content/Images/percentFive.png");
+}
+
+#audio-slider.percentOneHundred::-webkit-slider-thumb
+{
+    background-image: url("/Content/Images/percentOneHundred.png");
+}*/
+
+/* Audio Mozilla */
+
+/*#audio-slider::-moz-range-thumb
+{
+    background-image: url("/Content/Images/percentZero.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#audio-slider.percentHalf::-moz-range-thumb
+{
+    background-image: url("/Content/Images/percentHalf.png");
+}
+
+#audio-slider.percentOne::-moz-range-thumb
+{
+    background-image: url("/Content/Images/percentOne.png");
+}
+
+#audio-slider.percentTwo::-moz-range-thumb
+{
+    background-image: url("/Content/Images/percentTwo.png");
+}
+
+#audio-slider.percentFive::-moz-range-thumb
+{
+    background-image: url("/Content/Images/percentFive.png");
+}
+
+#audio-slider.percentOneHundred::-moz-range-thumb
+{
+    background-image: url("/Content/Images/percentOneHundred.png");
+}*/
+
+input[type=number]
+{
+    color: #ffffff;
+    background-color: #262626;
+    padding: 5px;
+    box-shadow: none !important;
+    outline: none !important;
+    border-width: 1px;
+    border-style: solid;
+}
+
+input[type=number]:valid
+{
+    border-color: #78B928;
+    background: url("/Content/Images/green-check.png");
+    background-repeat: no-repeat;
+    background-position: 70px 15px;
+}
+
+input[type=number]:out-of-range,
+input[type=number]:invalid
+{
+    border-color: #EF8621;
+    background: url("/Content/Images/orange-x.png");
+    background-repeat: no-repeat;
+    background-position: 70px 15px;
+}
+
+input[type=number]:focus
+{
+    border-color: #00A1D0;
+    background: none;
+}
+
+input[type=number]
+{
+    width: 100px;
+    height: 45px;
+}
+
+input[type=number]::-webkit-inner-spin-button
+{
+    -webkit-appearance: none;
+}
+
+.playerButton
+{
+    outline: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    border-color: #78b928;
+}
+
+.playerButton.play
+{
+    background: url('/Content/Images/playArrowWhite.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-position-x: 17px;
+}
+
+.playerButton.pause
+{
+    background: url('/Content/Images/pauseLinesWhite.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.playerButton.play.disabled
+{
+    background: url('/Content/Images/playArrowGrey.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-position-x: 17px;
+}
+
+.playerButton.pause.disabled
+{
+    background: url('/Content/Images/pauseLinesGrey.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.playerButton.play.active
+{
+    background: url('/Content/Images/playArrowGreen.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-position-x: 17px;
+}
+
+.playerButton.pause.active
+{
+    background: url('/Content/Images/pauseLinesGreen.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.playerButton.disabled
+{
+    background-color: #262626;
+    color: #474747;
+    border-color: #474747;
+}
+
+.playerButton.active
+{
+    color: #78b928;
+}
+
+.playerButton:hover
+{
+    background-color: #262626;
+    color: white;
+}
+
+.playerButton.disabled:hover
+{
+    border-color: #474747;
+    color: #474747;
+    cursor: initial;
+}
+
+.label
+{
+    font-family: 'SchucoRegularLight';
+    font-size: 21px;
+    padding-left: 0px;
+}
+
+#tabs
+{
+    text-align: initial;
+    margin-top: -10px;
+    width: 100%;
+}
+
+.tab
+{
+    width: 175px;
+    height: 45px;
+    background-color: #474747;
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+    border-bottom: 1px solid #78b928;
+    display: inline-block;
+    text-align: center;
+    padding-top: 14px;
+    margin: 1px 0px 0px -5px;
+    font-family: 'SchucoRegularBold';
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+
+.tab:hover
+{
+    background-color: #262626;
+    border: 1px solid #78b928;
+    /*border-left: 1px solid #78b928;
+    border-top: 1px solid #78b928;
+    border-right: 1px solid #78b928;*/
+}
+
+.tab.active
+{
+    background-color: #262626;
+    border-left: 1px solid #78b928;
+    border-top: 1px solid #78b928;
+    border-right: 1px solid #78b928;
+    border-bottom: 1px solid #262626;
+}
+
+.tab.leftBorder
+{
+    border-left: 1px solid #78b928;
 }
